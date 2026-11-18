@@ -1,0 +1,301 @@
+\section{\texorpdfstring{$(1,1,2)$}{(1,1,2)} 型代数の次数 \texorpdfstring{$1$}{1} 中心拡大}
+\label{sec:central}
+
+代数 $C$ の\emph{次数 $1$ の正則中心拡大}とは、
+$t\in Z(A)_1$ が非零因子であり、次数付き同型 $A/(t)\cong C$ を持つ代数 $A$ をいう。
+ここで $Z(A)$ は $A$ の中心である。Hilbert 級数の変数には $s$ を用いる。
+
+\subsection{中心拡大から Ore データへ}
+
+まず、後で反復にも用いる中心拡大の性質をまとめる。
+
+\begin{lemma}\label{lem:central-lift}
+$D$ を連結局所有限次数付き代数、$u\in Z(D)_e$ を非零因子とし、
+$e\ge1$、$E=D/(u)$ とおく。
+$E$ が両側 noetherian な $d$ 次元 AS-regular代数で AS index $\ell$ を持つなら、
+$D$ は両側 noetherian な $d+1$ 次元 AS-regular代数であり、
+\[
+  H_D(s)=\frac{H_E(s)}{1-s^e},\qquad
+  \ASind(D)=\ell+e
+\]
+が成り立つ。さらに、$e=1$ で $E$ の最小生成次数が $(1^m,2)$ なら、
+$D$ の最小生成次数は $(1^{m+1},2)$ である。
+\end{lemma}
+
+\begin{proof}
+正則中心拡大の議論 \cite[Propositions~2.1 and~2.3]{CKS} を、
+本稿の重み付き次数に合わせて示す。完全列
+\[
+  0\longrightarrow D(-e)\xrightarrow{\cdot u}D
+    \longrightarrow E\longrightarrow0
+\]
+から Hilbert 級数の等式を得る。従って $E$ の多項式増大度から $D$ の
+有限 GK 次元も従う。右 $D$-加群として $\pd_D E=1$ である。
+長さ $d$ の $E$-自由分解で $k$ を分解すると、各項の $D$ 上の射影次元は
+高々 $1$ なので、短完全列に分けた次元移動により $\pd_D k\le d+1$ となる。
+上の完全列に $\underline{\Ext}_D^*(-,D)$ を適用すると、
+\[
+  \underline{\Ext}_D^q(E,D)=
+  \begin{cases}
+    E(e)&q=1,\\
+    0&q\ne1.
+  \end{cases}
+\]
+したがって環変更のスペクトル系列は $q=1$ の行に退化し、
+\begin{equation}\label{eq:central-ext-shift}
+  \underline{\Ext}_D^{i+1}(k,D)
+  \cong\underline{\Ext}_E^i(k,E)(e)
+\end{equation}
+を与える。$i=d$ の右辺は $k(\ell+e)\ne0$ だから $\pd_D k=d+1$ であり、
+連結次数付き代数に対する $\gldim D=\pd_D k$ により大域次元も $d+1$ である。
+左加群についても同じ計算が成立し、左右の AS 条件と AS index $\ell+e$ を得る。
+
+Noetherian 性も正の次数だけを用いて持ち上げられる。
+減少 filtration $F^pD=u^pD$ に対して、中心性と正則性から
+$\operatorname{gr}_uD\cong E[U]$ である。ここで $U$ は中心変数で、
+filtration 次数 $1$、内部次数 $e$ を持つ。
+同次右 ideal $J\subset D$ に誘導 filtration を入れると、
+$\operatorname{gr}_uJ$ は noetherian 環 $E[U]$ の同次右 ideal である。
+その有限個の二重同次生成元を $J$ へ持ち上げる。
+内部次数 $N$ の元をこれらの元で近似し、その差の $u$-adic order を
+順次増やすと、order は $N/e$ 以下なので補正は有限回で停止する。
+従って $J$ はそれらの持ち上げで生成される。
+任意の右 ideal に対しては内部次数による増加 filtration を用い、
+同次 ideal の生成元を持ち上げて最高次数を減らせば有限生成性が従う。
+左 ideal にも同じ議論が適用できるので、$D$ は両側 noetherian である。
+
+$e=1$ の場合を考える。
+$E$ の最小生成元を同次的に $D$ へ持ち上げ、それらに $u$ を加える。
+これらが $D$ を生成することは次数に関する帰納法で従う。実際、
+同次元の $E$ での像を生成元の式として持ち上げると、差は $uD$ に属し、
+$u$ を除いた係数の次数は $1$ 小さい。また $D_1\to E_1$ の核は $ku$ である。
+次数 $2$ の生成元の持ち上げが $D_1$ の積で書けるなら、その像も $E_1$ の積で書け、
+$E$ における最小性に反する。よって指定された最小生成次数を得る。
+\end{proof}
+
+\begin{theorem}\label{thm:central-ore}
+$C$ を両側 noetherian な $3$ 次元 AS-regular代数で、
+最小生成次数が $(1,1,2)$ であるものとする。
+$A/(t)\cong C$ を次数 $1$ の正則中心拡大とする。
+このとき $B=\langle A_1\rangle$ は両側 noetherian なquadratic Koszul AS-regular代数で、
+$\gldim B=3$ である。$A_2/(A_1A_1)$ の基底を持ち上げる元 $w\in A_2$ を選ぶと、
+ある $\sigma\in\Aut_{\mathrm{gr}}(B)$ と次数 $2$ の $\sigma$ 微分 $\delta$ により
+\begin{equation}\label{eq:central-ore}
+ A\cong B[w;\sigma,\delta],\qquad
+ t\in Z(B)_1,\qquad \sigma(t)=t,\qquad\delta(t)=0
+\end{equation}
+と書ける。さらに、$R=B/(t)$ は量子平面または Jordan 平面であり、
+商への誘導写像を上線で表すと
+\begin{equation}\label{eq:central-quotient-ore}
+ C\cong R[w;\bar\sigma,\bar\delta].
+\end{equation}
+その Hilbert 級数は
+\[
+ H_B(s)=\frac1{(1-s)^3},\qquad
+ H_C(s)=\frac1{(1-s)^2(1-s^2)},\qquad
+ H_A(s)=\frac1{(1-s)^3(1-s^2)}
+\]
+であり、$\gldim A=4$、$\ASind(A)=5$ である。
+
+逆に、$B$ を両側 noetherian な二次 $3$ 次元 AS-regular代数とし、
+$t\in Z(B)_1$ を非零因子で、$R=B/(t)$ が $2$ 次元 AS-regularとなるものとする。
+$\sigma\in\Aut_{\mathrm{gr}}(B)$ と次数 $2$ の $\sigma$ 微分 $\delta$ が
+$\sigma(t)=t$、$\delta(t)=0$ を満たすなら、$B[w;\sigma,\delta]$ は
+\eqref{eq:central-quotient-ore} で定まる $(1,1,2)$ 型代数の次数 $1$ の正則中心拡大である。
+\end{theorem}
+
+\begin{proof}
+主定理を $A$ と $C$ の双方に適用し、Ore 基底によって
+$B/(t)$ を $\langle C_1\rangle$ と同定する。これにより、中心元の条件と商の AS-regular性を得る。
+
+命題~\ref{prop:index-three} により $\ASind(C)=4$ である。
+補題~\ref{lem:central-lift} から、$A$ は両側 noetherian な $4$ 次元 AS-regular代数で、
+最小生成次数は $(1,1,1,2)$、AS indexは $5$ である。
+定理~\ref{thm:ore} を $n=3$ で適用すると、
+$B=\langle A_1\rangle$ はquadratic Koszul $3$ 次元 AS-regular代数となり、
+$A=B[w;\sigma,\delta]$ を得る。
+
+$t\in A_1=B_1$ かつ $t\in Z(A)$ なので $t\in Z(B)$ である。
+$wt=tw$ と Ore 関係を比較すると
+\[
+   (\sigma(t)-t)w+\delta(t)=0.
+\]
+$A=\bigoplus_{j\ge0}Bw^j$ における係数の一意性から、
+$\sigma(t)=t$ および $\delta(t)=0$ が従う。
+したがって $\sigma$ と $\delta$ は $(t)\subset B$ を保ち、$R=B/(t)$ に
+$\bar\sigma\in\Aut_{\mathrm{gr}}(R)$ と次数 $2$ の $\bar\sigma$ 微分 $\bar\delta$ を誘導する。
+中心性と Ore 基底から
+\[
+  tA=\bigoplus_{j\ge0}tBw^j,\qquad
+  B\cap tA=tB,\qquad
+  A/tA=\bigoplus_{j\ge0}(B/tB)w^j
+\]
+となる。商における積は誘導された Ore 関係で与えられるので、
+\eqref{eq:central-quotient-ore} は実際に次数付き代数同型である。
+
+一方、$C$ に定理~\ref{thm:ore} を $n=2$ で適用すると、
+$\langle C_1\rangle$ は二次 $2$ 次元 AS-regular代数である。
+$B$ の $C$ における像はちょうど $\langle C_1\rangle$ であり、その核は上で示した $tB$ だから、
+\[
+ R=B/(t)\cong\langle C_1\rangle.
+\]
+$k=\C$ 上の二次 $2$ 次元 AS-regular代数の関係式は、基底変換によって
+\begin{equation}\label{eq:central-plane}
+  R\cong k\langle x,y\rangle/(yx-qxy-\varepsilon x^2),
+  \qquad
+  (q,\varepsilon)\in
+  \{(q,0)\mid q\in k^\times\}\cup\{(1,1)\}
+\end{equation}
+の形になる（\cite[Section~2, following Corollary~2.2]{RZ}）。
+これはそれぞれ量子平面と Jordan 平面であり、$H_R(s)=(1-s)^{-2}$ である。
+$t$ は $B$ 上でも非零因子であるから $H_B=H_R/(1-s)$、
+さらに Ore 基底から $H_A=H_B/(1-s^2)$ および $H_C=H_R/(1-s^2)$ を得る。
+
+逆向きでは、Ore 拡大 $A=B[w;\sigma,\delta]$ の左 $B$ 基底を用いる。
+$\sigma(t)=t$ と $\delta(t)=0$ より $wt=tw$ なので、$t$ は $A$ の中心に属する。
+$t\sum_jb_jw^j=0$ なら各 $tb_j=0$ であるから各 $b_j=0$ となり、
+$t$ は $A$ 上でも非零因子である。商を計算する上の議論もそのまま適用できる。
+自己同型を用いる次数付き Ore 拡大は、両側 noetherian 性と AS-regular性を保ち、
+大域次元を $1$ 増やす
+（\cite[Sections~1.2--1.3 and Theorem~3.3]{LWW}）。
+これを $B$ と $R$ に適用すると、$A$ と $C=R[w;\bar\sigma,\bar\delta]$ は
+それぞれ $4$ 次元と $3$ 次元の AS-regular代数となる。
+有限 GK 次元は Ore 基底による上記の Hilbert 級数からも確認できる。
+また $C_2=R_2\oplus kw$ なので $w\notin\langle C_1\rangle$ であり、
+$C$ の最小生成次数は $(1,1,2)$ である。
+\end{proof}
+
+\subsection{次数 \texorpdfstring{$1$}{1} 部分の明示的表示}
+
+\begin{proposition}\label{prop:central-base-presentation}
+定理~\ref{thm:central-ore} に現れる $(B,t)$ は、$x,y\in B_1$ の選択により
+\begin{equation}\label{eq:central-base-presentation}
+ B\cong
+ \frac{k\langle t,x,y\rangle}
+ {\bigl(tx-xt,\ ty-yt,\ yx-qxy-\varepsilon x^2-t(ax+by)-ct^2\bigr)}
+\end{equation}
+と表示できる。ここで $\deg t=\deg x=\deg y=1$、$a,b,c\in k$ であり、
+$(q,\varepsilon)$ は \eqref{eq:central-plane} の条件を満たす。
+逆に、これらの任意のパラメータに対して、\eqref{eq:central-base-presentation} は
+両側 noetherian な二次 $3$ 次元 AS-regular整域を定める。
+$t$ は正則中心元であり、その商は \eqref{eq:central-plane} の $R$ である。
+\end{proposition}
+
+\begin{proof}
+まず表示の右辺を $P$ とおく。可換多項式環 $S=k[t,x]$ 上で
+\begin{align*}
+  &\alpha(t)=t,\qquad &&\alpha(x)=qx+bt,\\
+  &\beta(t)=0,\qquad &&\beta(x)=\varepsilon x^2+atx+ct^2
+\end{align*}
+と定める。$q\ne0$ なので $\alpha$ は次数付き自己同型であり、
+$\alpha^{-1}(x)=q^{-1}(x-bt)$ である。
+$\beta$ を自由代数から $\alpha$ 微分として延長すると、
+$f=\varepsilon x^2+atx+ct^2$ に対して
+\[
+  \beta(xt-tx)=ft-tf=0\quad\text{in }S
+\]
+であるから、$S$ 上の $\alpha$ 微分を定める。その次数は $1$ である。
+Ore 関係 $ys=\alpha(s)y+\beta(s)$ を $s=t,x$ について書くと
+\eqref{eq:central-base-presentation} の関係式に一致するため、
+\begin{equation}\label{eq:central-base-iterated-ore}
+ P\cong k[t,x][y;\alpha,\beta].
+\end{equation}
+従って
+\[
+   \{t^i x^j y^h\mid i,j,h\ge0\}
+\]
+は $P$ の $k$ 基底であり、$H_P(s)=(1-s)^{-3}$ である。
+さらに、$y$ の最高次の係数がそれぞれ $r_m,s_n\in S\setminus\{0\}$ である
+非零元の積の最高次係数は $r_m\alpha^m(s_n)$ なので、$P$ は整域である。
+$S$ は両側 noetherian な $2$ 次元 AS-regular代数であり、$\alpha$ は自己同型だから、
+\cite[Sections~1.2--1.3 and Theorem~3.3]{LWW} により
+$P$ は両側 noetherian な $3$ 次元 AS-regular代数である。
+有限 GK 次元は既に計算した Hilbert 級数で確認される。
+また、関係式から $t$ は中心元であり、PBW 基底からその乗法は単射である。
+$t=0$ とすれば商は \eqref{eq:central-plane} に一致する。
+
+次に、定理~\ref{thm:central-ore} の $B$ に戻る。
+$R_1$ の基底を \eqref{eq:central-plane} の形に選び、$x,y\in B_1$ へ持ち上げる。
+このとき $t,x,y$ は $B_1$ の基底である。
+$yx-qxy-\varepsilon x^2$ は $B_2$ に属し、$R$ における像が $0$ なので、
+ある $a,b,c\in k$ によって
+\[
+  yx-qxy-\varepsilon x^2=t(ax+by+ct)
+\]
+と書ける。したがって同じパラメータの $P$ から $B$ への次数付き全射がある。
+両者の Hilbert 級数は $(1-s)^{-3}$ であるため、各次数で全射は同型となり、
+$P\cong B$ が従う。
+\end{proof}
+
+\subsection{同型によるデータの同一視}
+
+\eqref{eq:central-base-presentation} のパラメータと、その $B$ 上の
+$(\sigma,\delta)$ は、生成元の選択に依存する。この依存は次の同値関係で記述できる。
+中心直線を指定した拡大のデータを $(B,kt,\sigma,\delta)$ とし、
+これに $A=B[w;\sigma,\delta]$ を対応させる。
+別のデータを $(B',kt',\sigma',\delta')$、対応する代数を
+$A'=B'[w';\sigma',\delta']$ とする。
+
+\begin{proposition}\label{prop:central-isomorphisms}
+中心直線を保つ次数付き同型 $F:A\to A'$、$F(kt)=kt'$ は、
+次のデータと $1$ 対 $1$ に対応する：
+次数付き同型 $\phi:B\to B'$、$\lambda,\mu\in k^\times$ および $h\in B'_2$ であって、
+\begin{align}
+  \phi(t)&=\mu t',\label{eq:central-iso-t}\\
+  \phi\sigma&=\sigma'\phi,\label{eq:central-iso-sigma}\\
+  \phi\delta(b)&=\lambda\delta'\phi(b)+h\phi(b)-\phi\sigma(b)h
+       \qquad(b\in B)\label{eq:central-iso-delta}
+\end{align}
+を満たすものである。この対応における同型は
+\[
+  F|_B=\phi,\qquad F(w)=\lambda w'+h
+\]
+で与えられる。
+\end{proposition}
+
+\begin{proof}
+命題~\ref{prop:ore-isomorphism} により、同型 $F$ の形と
+\eqref{eq:central-iso-sigma}、\eqref{eq:central-iso-delta} の必要十分性を得る。
+$t\in B_1$ なので、$F(kt)=kt'$ という条件はちょうど
+\eqref{eq:central-iso-t} である。
+\end{proof}
+
+従って次数 $1$ の中心直線を指定した拡大の同型類は、
+定理~\ref{thm:central-ore} のデータを
+\eqref{eq:central-iso-t}--\eqref{eq:central-iso-delta} で同一視したものと一致する。
+中心元そのものを指定する場合は $\mu=1$ とする。
+固定した代数 $C$ への商写像まで指定する場合は、
+$A/(t)\cong C$ という同型をデータに加え、誘導される商の同型がこの同一視と可換になることを課す。
+中心直線を指定しない代数の同型を考える場合は、\eqref{eq:central-iso-t} を外せばよい。
+
+\subsection{中心拡大の反復}
+
+\begin{corollary}\label{cor:iterated-central}
+$n\ge2$ とし、$C_0$ を定理~\ref{thm:central-ore} の $(1,1,2)$ 型代数とする。
+連結局所有限次数付き代数の列 $C_0,C_1,\ldots,C_{n-2}$ があり、各 $j=1,\ldots,n-2$ について
+\[
+  t_j\in Z(C_j)_1\text{ は非零因子},\qquad
+  C_j/(t_j)\cong C_{j-1}
+\]
+が成り立つとする。このとき $A=C_{n-2}$ は両側 noetherian な AS-regular代数で、
+\[
+ \gldim A=n+1,\qquad
+ \ASind(A)=n+2,\qquad
+ H_A(s)=\frac1{(1-s)^n(1-s^2)}
+\]
+を満たし、最小生成次数は $(1^n,2)$ である。従って定理~\ref{thm:ore} が適用され、
+\[
+ A=\langle A_1\rangle[w;\sigma,\delta],\qquad \deg w=2,
+\]
+と書ける。ここで $\langle A_1\rangle$ はquadratic Koszul $n$ 次元 AS-regular代数である。
+\end{corollary}
+
+\begin{proof}
+$C_0$ の大域次元は $3$、AS indexは $4$、最小生成次数は $(1,1,2)$ であり、
+定理~\ref{thm:central-ore} の証明で得た Ore 表示から
+$H_{C_0}(s)=((1-s)^2(1-s^2))^{-1}$ である。
+補題~\ref{lem:central-lift} を各段階に適用すると、
+$j$ 段階目では大域次元は $3+j$、AS indexは $4+j$、
+最小生成次数は $(1^{2+j},2)$ となり、Hilbert 級数には $(1-s)^{-j}$ が掛かる。
+$j=n-2$ とすれば主張の数値と主定理のすべての仮定が得られる。
+\end{proof}

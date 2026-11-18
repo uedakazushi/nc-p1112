@@ -1,0 +1,19 @@
+{
+  "latex-workshop.latex.autoBuild.run": "never",
+  "latex-workshop.latex.outDir": "%DIR%/build",
+  "latex-workshop.latex.tools": [
+    {
+      "name": "dated-xelatex",
+      "command": "python3",
+      "args": ["%DIR%/scripts/build.py"]
+    }
+  ],
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "Dated XeLaTeX PDF",
+      "tools": ["dated-xelatex"]
+    }
+  ],
+  "files.encoding": "utf8",
+  "files.eol": "\n"
+}

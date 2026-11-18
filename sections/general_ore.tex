@@ -1,0 +1,284 @@
+\section{重み \texorpdfstring{\((1^n,2)\)}{(1,...,1,2)} の構造定理}\label{sec:general}
+
+\begin{theorem}\label{thm:ore}
+\(A\) を両側 noetherian AS-regular 代数とし、最小生成次数を
+\((1^n,2)\)、\(n\ge1\) とする。さらに
+\begin{equation}\label{eq:index-hyp}
+d:=\gldim A=n+1,\qquad \ell:=\ASind A=n+2
+\end{equation}
+を仮定する。このとき \(B=k\langle A_1\rangle\) は両側 noetherian な
+\(n\) 次元 quadratic Koszul AS-regular 代数であり、
+\[
+A\cong B[w;\sigma,\delta],\qquad |w|=2
+\]
+と書ける。\(\sigma\) は graded automorphism、\(\delta\) は次数 \(2\) の
+\(\sigma\)-derivation である。また
+\begin{equation}\label{eq:standard-hilbert}
+H_B(t)=\frac1{(1-t)^n},\qquad
+H_A(t)=\frac1{(1-t)^n(1-t^2)}.
+\end{equation}
+\end{theorem}
+
+\begin{corollary}\label{cor:hilbert-hyp}
+定理~\ref{thm:ore} の AS index の仮定を、
+\[
+H_A(t)=\frac1{(1-t)^n(1-t^2)}
+\]
+で置き換えても、同じ結論が成立する。
+\end{corollary}
+
+\begin{proof}[系の証明]
+AS-Gorenstein 双対性により、\(k_A\) の最小自由分解の最終項は
+\(A(-\ell)\) である。第 \(i\) 項（\(0<i<d\)）の shift \(s\) は
+\(s\le\ell-(d-i)<\ell\) を満たすので、Euler 和
+\(H_A(t)^{-1}\) の最高次数は \(\ell\) である。
+仮定の逆 Hilbert 級数の次数は \(n+2\) だから、
+\(\ell=n+2\) となる。
+ここで用いた最小自由分解の有限性と双対性は
+\cite[Lemma~1.1]{LPWZ} による。
+\end{proof}
+
+以下、定理~\ref{thm:ore} を証明する。まず最小自由分解の次数を制限し、
+\(k[w]\) 上の Tor の有限次元性から交換関係の係数を可逆にする。
+次に第 3 微分を用いて、その交換関係が quadratic relations と両立することを示す。
+
+\subsection{最小自由分解と Tor}
+
+\(V=A_1\)、\(\dim_kV=n\) とし、次数 \(2\) の最小生成元を \(w\) とする。
+\(k_A\) の最小自由分解を \(P_\bullet\) と書く。
+その第 \(i\) 項の shift は、最小性から \(i\) 以上である。
+双対分解の最小性と \eqref{eq:index-hyp} から、同じ shift は
+\(\ell-(d-i)=i+1\) 以下である。
+従って
+\begin{equation}\label{eq:two-strands}
+P_i=A(-i)^{a_i}\oplus A(-i-1)^{b_i},
+\end{equation}
+と書け、端の値は
+\[
+a_0=1,\quad b_0=0,\qquad
+a_1=n,\quad b_1=1,\qquad
+a_d=0,\quad b_d=1
+\]
+である。
+
+最小関係式の次数は \(2,3\) のみである。
+次数 \(2\) の関係式に \(w\) の線形項があれば \(w\) を消去できるので、
+そのような項はない。次数 \(3\) の各単語は \(V\) の元を含む。
+従って \(V\) の生成する両側 ideal による商は
+\begin{equation}\label{eq:quotient-Q}
+Q:=A/(V)\cong k[w].
+\end{equation}
+
+\(P_\bullet\otimes_AQ\) において、微分の次数 \(1\) の係数は消え、
+次数 \(0\) の係数は最小性から零である。
+従って非零になり得る微分は
+\begin{equation}\label{eq:tor-block}
+Q(-i-1)^{b_i}\xrightarrow{\;wM_i\;}
+Q(-i+1)^{a_{i-1}},\qquad
+M_i\in M_{a_{i-1},b_i}(k)
+\end{equation}
+のみである。各直和因子はこのうち 1 本の矢印にだけ関与する。
+
+左 noetherian 性により、左 \(A\)-加群 \(Q\) は各項が有限生成自由加群である
+分解を持つ。それを用いて Tor を計算すれば
+\(\dim_k\Tor_i^A(k,Q)<\infty\) である。
+\(M_i\) に核があれば \eqref{eq:tor-block} の核に自由 \(Q\)-直和因子が生じ、
+余核があれば同じ矢印の余核に自由 \(Q\)-直和因子が生じる。
+いずれも Tor の有限次元性に反する。よって
+\begin{equation}\label{eq:betti-pairing}
+b_i=a_{i-1},\qquad M_i\text{ は正方可逆行列}
+\end{equation}
+である。反対環にもこの議論を適用できる。
+
+\subsection{Hilbert 級数と Betti 数}
+
+\eqref{eq:two-strands} と \eqref{eq:betti-pairing} から
+\[
+H_A(t)^{-1}=(1-t^2)q(t),\qquad
+q(t)=\sum_{i=0}^{n}(-1)^i a_it^i.
+\]
+ここで \(a_n=b_{n+1}=1\) だから
+\[
+\deg q=n,\quad q(0)=1,\quad [t]q=-n,\quad [t^n]q=(-1)^n.
+\]
+有限 GK 次元により \(H_A(t)\) は \(|t|<1\) で収束するため、
+\(H_A(t)^{-1}\) はその円板内に根を持たない。
+従って \(q\) の根の絶対値はすべて \(1\) 以上である。
+定数項と最高次係数の絶対値がともに \(1\) なので根の積の絶対値は \(1\)、
+よって全根の絶対値は \(1\) である。
+\[
+q(t)=\prod_{j=1}^{n}(1-\mu_jt)
+\]
+と書くと、\(|\mu_j|=1\) かつ \(\sum_j\mu_j=n\) である。
+実部を取れば各 \(\operatorname{Re}\mu_j\le1\) の和が \(n\) なので、
+すべて \(\mu_j=1\) となる。従って
+\begin{equation}\label{eq:betti-binomial}
+q(t)=(1-t)^n,\qquad
+a_i=\binom ni,\qquad b_i=\binom n{i-1}.
+\end{equation}
+ここでは範囲外の二項係数を \(0\) とする。
+これにより \eqref{eq:standard-hilbert} の \(H_A\) の式を得た。
+
+\subsection{交換関係と quadratic relations の両立}
+
+\eqref{eq:betti-pairing} より最小 cubic relations は \(b_2=n\) 本である。
+第 2 微分における \(M_2\) の可逆性は、cubic relations から
+\(Vw\) への係数射影が可逆であることを意味する。
+反対環での同じ主張により、\(wV\) への係数射影も可逆である。
+従って関係式を
+\begin{equation}\label{eq:cubic-normal}
+wv=\tau(v)w+\partial(v)\qquad(v\in V)
+\end{equation}
+と正規化できる。ただし \(\tau:V\xrightarrow{\sim}V\)、
+\(\partial:V\to T_3(V)\) である。
+\(\tau\) を自由代数 \(T=T(V)\) の automorphism に、
+\(\partial\) を \(T\) 上の \(\tau\)-derivation に延長する。
+
+\(R\subset V\otimes V\) を quadratic relation space とし、
+\(r=\dim_kR=a_2\)、\(I=(R)\subset T\) と置く。
+基底を行ベクトル \(\mathbf x=(x_1,\ldots,x_n)\) で表し、
+\[
+\tau(\mathbf x)=\mathbf xS,\qquad
+\partial(\mathbf x)=\mathbf xD,
+\qquad S\in GL_n(k),\quad D\in M_n(T_2)
+\]
+と書く。\(\mathbf xL\) の \(r\) 成分が \(R\) の基底となるように
+\(L\in M_{n,r}(V)\) を取る。
+右自由加群の元を列ベクトルで表すと、第 2 微分は
+\begin{equation}\label{eq:d2-matrix}
+d_2=
+\begin{pmatrix}L&-Sw-D\\0&\mathbf x\end{pmatrix}.
+\end{equation}
+
+\(r=0\) なら \(I=0\) であり、\(\tau,\partial\) は既に \(T/I\) 上に定義される。
+以下 \(r>0\) とする。このとき \(P_3\) が存在し、
+その次数 \(4\) の直和因子は \(b_3=a_2=r\) 個である。
+対応する第 3 微分の列を
+\begin{equation}\label{eq:d3-matrix}
+d_3\big|_{A(-4)^r}=
+\begin{pmatrix}Pw+N\\K\end{pmatrix},
+\quad
+P\in GL_r(k),\quad N\in M_r(T_2),\quad K\in M_{n,r}(V)
+\end{equation}
+と書く。\(P\) の可逆性は \eqref{eq:betti-pairing} の \(i=3\) の場合である。
+
+次数 \(3\) の関係式空間は、\(VR+RV\) と選んだ cubic relations の和である。
+後者から \(wV\) への射影が可逆なので、\(wV\) を消去すると
+\begin{equation}\label{eq:degree-three-splitting}
+A_3\cong T_3/(VR+RV)\oplus Vw
+\end{equation}
+を得る。
+
+\(d_2d_3=0\) の下段は
+\begin{equation}\label{eq:relations-xK}
+\mathbf xK\in R^{\oplus r}
+\end{equation}
+を与える。上段で \eqref{eq:cubic-normal} を用い、
+\eqref{eq:degree-three-splitting} の成分を比較すると
+\begin{align}
+LP&=S\tau(K),\label{eq:tau-compat}\\
+LN-DK-S\partial(K)&\in M_{n,r}(I_3).
+\label{eq:delta-compat}
+\end{align}
+\(L\) の列は \(k\)-線形独立であり、\(P,S,\tau\) は可逆なので、
+\eqref{eq:tau-compat} から \(K\) の列も独立である。
+写像 \(V^{\oplus n}\to T_2\)、\((f_i)\mapsto\sum_i x_if_i\) は
+ベクトル空間の同型である。従って \eqref{eq:relations-xK} の
+\(\mathbf xK\) の成分は \(R\) の基底をなす。
+
+これらの基底に関して
+\[
+\tau(\mathbf xK)=\mathbf xS\tau(K)=(\mathbf xL)P
+\]
+なので \(\tau(R)=R\) である。また \eqref{eq:delta-compat} に左から
+\(\mathbf x\) を掛けると
+\[
+\partial(\mathbf xK)
+=\mathbf xDK+\mathbf xS\partial(K)
+\equiv(\mathbf xL)N\pmod{I_4},
+\]
+ゆえに \(\partial(R)\subseteq I\) である。
+\(\tau\)-derivation の積公式から \(\partial(I)\subseteq I\) も従う。
+
+従って \(\tau,\partial\) は \(\widetilde B=T/I\) 上の
+graded automorphism \(\sigma\) と次数 \(2\) の
+\(\sigma\)-derivation \(\delta\) に降りる。
+\(A\) の全最小関係式は \(R\) と \eqref{eq:cubic-normal} なので、
+生成元と関係式の表示を比較して
+\begin{equation}\label{eq:ore-presentation}
+A\cong \widetilde B[w;\sigma,\delta]
+\end{equation}
+を得る。Ore 拡大の自由加群表示により \(\widetilde B\) は \(A\) に埋め込まれ、
+その像は \(k\langle A_1\rangle=B\) である。
+また \eqref{eq:standard-hilbert} の \(H_A\) の式と
+\(H_A=H_B/(1-t^2)\) から、\(H_B\) の式も従う。
+
+\subsection{AS-regular 性の降下}\label{subsec:descent}
+
+残る \(B\) の AS-regular 性を示す。
+\(A\) が左右の \(B\)-自由加群であることから、右 ideal \(J\subset B\) に対して
+\(JA\cap B=J\)、左 ideal に対して \(AJ\cap B=J\) が成り立つ。
+従って ideal の昇鎖を延長・縮約することにより、\(B\) も両側 noetherian である。
+
+\(B_+=B_{\ge1}\) と置く。\(\sigma(B_+)=B_+\)、
+\(\delta(B_+)\subseteq B_+\) なので、\(B_+A\) は両側 ideal である。
+右 \(A\)-加群として
+\[
+Q=k\otimes_BA=A/B_+A\cong k[w],
+\qquad Q_B\cong\bigoplus_{j\ge0}k(-2j).
+\]
+\(Q\) の長さ高々 \(d\) の \(A\)-projective resolution を \(B\) に制限する。
+\(A_B\) は自由なので、これにより \(\pd_BQ\le d\) を得る。
+\(k_B\) は \(Q_B\) の直和因子であるから \(\pd_Bk\le d\) である。
+
+\(B\) の noetherian 性により、\(k_B\) は有限生成自由加群からなる有限分解を持つ。
+この分解を用いた誘導・制限の随伴と \(A_B\cong\bigoplus_{j\ge0}B(-2j)\) から、
+次数付きベクトル空間として
+\begin{equation}\label{eq:ext-induction}
+E^i:=\underline{\Ext}^{i}_A(Q,A)
+\cong\underline{\Ext}^{i}_B(k,A_B)
+\cong\bigoplus_{j\ge0}
+\underline{\Ext}^{i}_B(k,B)(-2j).
+\end{equation}
+各 \(E^i\) は各次数有限次元で次数下有界である。
+
+右 \(A\)-加群の短完全列
+\[
+0\longrightarrow Q(-2)\xrightarrow{\cdot w}Q
+\longrightarrow k\longrightarrow0
+\]
+に \(\underline{\Ext}_A(-,A)\) を適用する。
+AS-Gorenstein 条件により、\(i<d-1\) では \(E^i\cong E^i(2)\) であり、
+\(E^d\to E^d(2)\) は全射である。
+最低の非零次数を考えれば、下有界性によりこれらの \(E^i\) はすべて零となる。
+また \(i>d\) では大域次元により零である。残る部分は
+\[
+0\longrightarrow E^{d-1}\longrightarrow E^{d-1}(2)
+\longrightarrow k(\ell)\longrightarrow0
+\]
+なので
+\[
+H_{E^{d-1}}(t)=\frac{t^{2-\ell}}{1-t^2}.
+\]
+これと \eqref{eq:ext-induction} を比較すると
+\begin{equation}\label{eq:ext-B}
+\underline{\Ext}^{i}_B(k,B)\cong
+\begin{cases}k(\ell-2)=k(n)&i=d-1=n,\\0&i\ne n\end{cases}
+\end{equation}
+を得る。非零の Ext は 1 次元で 1 つの内部次数に集中するため、
+\(B_+\) の作用は零であり、上式は左 \(B\)-加群の同型でもある。
+
+有限最小自由分解の最高次の Ext は非零である。
+実際、最終の双対微分の像は自由加群の \(B_+\) による部分加群に入るため、
+その余核は零にならない。従って \eqref{eq:ext-B} から \(\pd_Bk=n\) である。
+連結次数付き代数に対する \(\gldim B=\pd_Bk\)
+（\cite[Proposition~2.1 の証明]{CKS} も参照）から大域次元は \(n\) である。
+
+反対環は \(B^{\mathrm{op}}\) 上の Ore 拡大で、automorphism は
+\(\sigma^{-1}\)、derivation は \(-\delta\sigma^{-1}\) である。
+従って同じ議論を反対環に適用し、左側の AS-Gorenstein 条件も得る。
+有限 GK 次元は \(B\subseteq A\) から従う。
+これで \(B\) は \(n\) 次元 AS-regular、AS index \(n\) と分かった。
+その最小分解の第 \(i\) 項の shift は、最小性と双対性により \(i\) に限られる。
+従って \(B\) は Koszul である。\(B=T(V)/(R)\) なので quadratic でもあり、
+定理~\ref{thm:ore} の証明が完了した。

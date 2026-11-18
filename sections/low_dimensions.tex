@@ -1,0 +1,341 @@
+\section{低次元の場合と次数付き同型}
+\label{sec:lowdim}
+
+大域次元が3または4の場合には、最小生成元の次数だけから
+定理\ref{thm:ore}に必要なAS indexを決定できる。
+以下では両側 noetherian性から得られる成長度の下界と、最小自由分解の双対性を用いる。
+
+\subsection{最小自由分解とHilbert級数の零点}
+
+$A$を大域次元$d$、AS index$\ell$の連結次数付きAS-regular代数とし、
+$k_A=A/A_{\geq 1}$の最小次数付き右自由分解を
+\[
+  0\longrightarrow P_d\longrightarrow\cdots\longrightarrow P_0
+  \longrightarrow k_A\longrightarrow0,
+  \qquad
+  P_i=\bigoplus_{\nu=1}^{b_i}A(-a_{i\nu})
+\]
+と書く。ここで$A(-a)_m=A_{m-a}$である。
+AS双対性によれば、$P_0=A$、$P_d=A(-\ell)$であり、
+$P_{d-i}$のシフトの多重集合は
+$\{\ell-a_{i\nu}\}_{\nu=1}^{b_i}$に一致する
+\cite[Lemma 1.1]{LPWZ}。
+また
+\begin{equation}
+  a_{i\nu}\geq i
+  \label{eq:lowdim-shift-bound}
+\end{equation}
+である。実際、最小性より$P_i\otimes_A k\cong\Tor_i^A(k,k)$であり、
+$\Tor_i^A(k,k)$を計算する被約bar複体の第$i$項
+$A_{\geq1}^{\otimes i}$は内部次数$i$未満の成分を持たない。
+
+自由分解の各次数でEuler標数を取ると
+\begin{equation}
+  H_A(t)=\frac{1}{p_A(t)},
+  \qquad
+  p_A(t)=\sum_{i=0}^{d}(-1)^i\sum_{\nu=1}^{b_i}t^{a_{i\nu}}
+  \label{eq:lowdim-euler}
+\end{equation}
+を得る。以下で用いる代数は次数1と2の元で生成される。
+この場合、$t=1$における$p_A(t)$の零点の位数を$m$とすると
+$\GKdim A\leq m$である。ここでは$p_A(1)\ne0$のとき$m=0$とする。
+この不等式は、$h_j=\dim_k A_j$と置いたときの
+\[
+  \sum_{j=0}^{N}h_j
+  \leq eH_A(e^{-1/N})=O(N^m)
+\]
+から従う。AS-regular性に含まれる有限GK次元の条件により、
+この式のHilbert級数は$0<t<1$で収束する。
+また、$1$と固定した最小生成元が張る空間を$U$とすれば
+$U^N\subseteq\bigoplus_{j=0}^{2N}A_j$なので、
+上の評価はGK次元の定義に適用できる。
+両側 noetherianかつ$d\geq3$ならば
+\cite[Lemma 1.2]{LPWZ}より$\GKdim A\geq3$であり、したがって
+\begin{equation}
+  p_A(1)=p_A'(1)=p_A''(1)=0
+  \label{eq:lowdim-three-zeros}
+\end{equation}
+となる。
+
+\subsection{生成元の次数が\texorpdfstring{$(1,1,1,2)$}{(1,1,1,2)}の場合}
+
+\begin{proposition}
+\label{prop:index-four}
+$A$を両側 noetherianな連結次数付きAS-regular$\C$代数とする。
+$\gldim A=4$であり、最小生成元の次数が$(1,1,1,2)$ならば、
+\[
+  \ASind A=5,
+  \qquad
+  H_A(t)=\frac{1}{(1-t)^3(1-t^2)}.
+\]
+さらに、$B=\C\langle A_1\rangle\subseteq A$は
+3次元のquadratic Koszul AS-regular代数であり、ある
+$\sigma\in\Aut_{\mathrm{gr}}(B)$と次数2の$\sigma$導分$\delta$に対して
+\[
+  A\cong B[w;\sigma,\delta],\qquad \deg w=2
+\]
+となる。この同型は$B$上の恒等写像を延長する。
+\end{proposition}
+
+\begin{proof}
+AS双対性で最小分解の両端を決め、
+\eqref{eq:lowdim-three-zeros}から中間項のシフトの平方和を求める。
+各シフトが入る区間上の不等式がAS indexの上界を与える。
+
+AS indexを$\ell$と書く。最小生成元の次数とAS双対性より
+\[
+\begin{split}
+  P_1&=A(-1)^{\oplus3}\oplus A(-2),\\
+  P_3&=A(-\ell+1)^{\oplus3}\oplus A(-\ell+2),
+  \qquad P_4=A(-\ell).
+\end{split}
+\]
+$P_3$にはシフト$\ell-2$の直和因子があるので、
+\eqref{eq:lowdim-shift-bound}から$\ell\geq5$を得る。
+$P_2=\bigoplus_{j=1}^{r}A(-s_j)$と書けば、同じ評価と双対性により
+\begin{equation}
+  2\leq s_j\leq\ell-2,
+  \qquad
+  \{s_1,\ldots,s_r\}=\{\ell-s_1,\ldots,\ell-s_r\}
+  \label{eq:four-middle-shifts}
+\end{equation}
+が多重集合として成立する。
+\eqref{eq:lowdim-euler}の分母は
+\[
+  p_A(t)=1-3t-t^2+\sum_{j=1}^{r}t^{s_j}
+       -3t^{\ell-1}-t^{\ell-2}+t^\ell.
+\]
+$p_A(1)=0$から$r=6$であり、
+\eqref{eq:four-middle-shifts}の対称性から
+\begin{equation}
+  \sum_{j=1}^{6}s_j=3\ell
+  \label{eq:four-first-moment}
+\end{equation}
+を得る。さらに$p_A''(1)=0$は
+\[
+  -2+\sum_{j=1}^{6}s_j(s_j-1)
+  -3(\ell-1)(\ell-2)-(\ell-2)(\ell-3)+\ell(\ell-1)=0
+\]
+であるから、\eqref{eq:four-first-moment}を代入して
+\begin{equation}
+  \sum_{j=1}^{6}s_j^2=3\ell^2-10\ell+14
+  \label{eq:four-second-moment}
+\end{equation}
+を得る。一方、$2\leq s_j\leq\ell-2$より
+\[
+  s_j(\ell-s_j)-2(\ell-2)
+   =(s_j-2)(\ell-2-s_j)\geq0.
+\]
+これを$j$について加え、
+\eqref{eq:four-first-moment}と\eqref{eq:four-second-moment}を使うと
+\[
+  12\ell-24\leq
+  \sum_{j=1}^{6}s_j(\ell-s_j)=10\ell-14.
+\]
+したがって$\ell\leq5$であり、先の下界と合わせて$\ell=5$となる。
+このとき$s_j\in\{2,3\}$かつ$\sum_js_j=15$なので、
+次数2と次数3の最小関係式はそれぞれ3本である。
+よって
+\[
+  p_A(t)=1-3t+2t^2+2t^3-3t^4+t^5
+        =(1-t)^3(1-t^2).
+\]
+
+定理\ref{thm:ore}を$n=3$に適用すると、
+$B=\C\langle A_1\rangle$は3次元のquadratic Koszul AS-regular代数であり、
+主張のOre表示が得られる。
+\end{proof}
+
+\subsection{生成元の次数が\texorpdfstring{$(1,1,2)$}{(1,1,2)}の場合}
+
+\begin{proposition}
+\label{prop:index-three}
+$A$を両側 noetherianな連結次数付きAS-regular$\C$代数とする。
+$\gldim A=3$であり、最小生成元の次数が$(1,1,2)$ならば、
+\[
+  \ASind A=4,
+  \qquad
+  H_A(t)=\frac{1}{(1-t)^2(1-t^2)}.
+\]
+さらに$B=\C\langle A_1\rangle$は、次数1の生成元$x,y$を適切に選ぶと
+\begin{equation}
+  B_q=\C\langle x,y\rangle/(yx-qxy)\quad(q\in\C^\times),
+  \qquad\text{または}\qquad
+  B_J=\C\langle x,y\rangle/(yx-xy-x^2)
+  \label{eq:plane-normal-forms}
+\end{equation}
+のいずれかである\cite[\S 2, Corollary 2.2の後]{RZ}。
+ある$\sigma\in\Aut_{\mathrm{gr}}(B)$と次数2の$\sigma$導分$\delta$に対して、
+$B$上の恒等写像を延長する次数付き同型
+\[
+  A\cong B[w;\sigma,\delta],\qquad\deg w=2
+\]
+が存在する。
+\end{proposition}
+
+\begin{proof}
+AS indexを$\ell$と書く。最小分解の双対性から
+\[
+  p_A(t)=1-2t-t^2+2t^{\ell-1}+t^{\ell-2}-t^\ell
+\]
+である。\eqref{eq:lowdim-three-zeros}のうち$p_A'(1)=0$を用いると
+\[
+  0=-2-2+2(\ell-1)+(\ell-2)-\ell=2\ell-8
+\]
+となるので、$\ell=4$である。したがって
+\[
+  p_A(t)=1-2t+2t^3-t^4=(1-t)^2(1-t^2).
+\]
+定理\ref{thm:ore}を$n=2$に適用すると、
+$B=\C\langle A_1\rangle$は2次元AS-regular代数であり、
+主張のOre表示と$H_B(t)=(1-t)^{-2}$が得られる。
+
+ここで$B$の表示を確認する。
+$B$は次数1の2元$x,y$で最小生成されるので、
+AS双対性と$H_B(t)=(1-t)^{-2}$から最小右自由分解は
+\[
+  0\longrightarrow B(-2)\xrightarrow{d_2}B(-1)^{\oplus2}
+   \xrightarrow{d_1}B\longrightarrow k_B\longrightarrow0
+\]
+となる。$d_1(e_1)=x$、$d_1(e_2)=y$とし、
+$d_2(1)=e_1a+e_2b$と書くと、$a,b\in B_1$であり、
+$B$の唯一の最小関係式は
+$r=x\otimes a+y\otimes b\in B_1\otimes B_1$である。
+この分解に$\operatorname{Hom}_B(-,B)$を施すと、AS条件から
+\[
+  B/(Ba+Bb)\cong k
+\]
+が得られる。従って$a,b$は$B_1$の基底であり、
+$r$の係数行列は可逆である。
+
+$r$の可換化を$\overline r\in\operatorname{Sym}^2(B_1)$とする。
+$\overline r=0$なら$r$は$xy-yx$の非零スカラー倍であり、
+$B\cong\C[x,y]$、すなわち$q=1$の量子平面となる。
+$\overline r$の階数が2ならば、$\C$上の変数変換で
+$\overline r$を$xy$の非零スカラー倍にできる。
+この座標では$r=\alpha xy+\beta yx$となり、
+係数行列の可逆性により$\alpha\beta\ne0$だから、
+$q=-\alpha/\beta$と置けば量子平面の表示を得る。
+$\overline r$の階数が1なら、スカラー倍と変数変換により
+\[
+  r=x^2+\gamma(xy-yx)
+\]
+と書ける。係数行列が可逆なので$\gamma\ne0$であり、
+$y'=\gamma y$と置くと$y'x-xy'-x^2=0$となり、Jordan平面の表示を得る。
+これで\eqref{eq:plane-normal-forms}の全場合を得た。
+\end{proof}
+
+\begin{corollary}
+\label{cor:lowdim-converse}
+$n=2$の場合は$B$を\eqref{eq:plane-normal-forms}のいずれかとし、
+$n=3$の場合は$B$を次数1の3元で生成される両側 noetherianな
+quadratic Koszul AS-regular代数で$\gldim B=3$を満たすものとする。
+$\sigma\in\Aut_{\mathrm{gr}}(B)$と次数2の$\sigma$導分$\delta$を任意に取る。
+このとき$B[w;\sigma,\delta]$は両側 noetherianなAS-regular代数であり、
+その大域次元は$n+1$、最小生成元の次数は$(1^n,2)$である。
+\end{corollary}
+
+\begin{proof}
+量子平面とJordan平面は、それぞれ
+$\C[x][y;\tau]$、$\C[x][y;\partial]$というOre拡大である。
+ここで$\tau(x)=qx$、$\partial(x)=x^2$であり、$\deg x=\deg y=1$とする。
+これらは両側 noetherianな2次元AS-regular代数であり、Hilbert級数は$(1-t)^{-2}$である。
+これらの性質と、一般の$A=B[w;\sigma,\delta]$のAS-regular性には、
+次のOre拡大定理を適用できる。
+noetherian AS-regularな連結次数付き代数はtwisted Calabi--Yauであり
+\cite[\S 1.2]{LWW}、自己同型によるOre拡大はその次元を1増やす
+\cite[Theorem 3.3]{LWW}。
+得られた代数のAS条件と有限大域次元は\cite[Lemma 1.3]{LWW}から従い、
+両側 noetherian性はOre拡大に対するHilbertの基底定理による
+\cite[\S 1.3]{LWW}。
+これらを$\C[x]$からの拡大にも適用すれば、最初に述べた2つの平面の性質も得られる。
+
+いずれの$n$についても$H_B(t)=(1-t)^{-n}$である。
+$n=3$のときは、Koszul性とAS双対性による線形分解
+$0\to B(-3)\to B(-2)^3\to B(-1)^3\to B\to k\to0$から従う。
+$A$の左$B$自由基底が$\{w^j\}_{j\geq0}$なので
+\[
+  H_A(t)=\frac{H_B(t)}{1-t^2}
+        =\frac{1}{(1-t)^n(1-t^2)},
+\]
+従って有限GK次元の条件も満たされる。
+$A_1=B_1$、$A_2=B_2\oplus\C w$であるから、
+$B$の最小生成元に$w$を加えたものは最小生成系である。
+\end{proof}
+
+\subsection{Oreデータの同値関係}
+
+次数1で生成される部分代数$\C\langle A_1\rangle$は
+次数付き同型によって保たれる。
+したがって、上述のOre表示の同型判定は次の形に尽きる。
+
+\begin{proposition}
+\label{prop:ore-isomorphism}
+$B,B'$を次数1で生成される連結次数付き$\C$代数とし、
+\[
+  A=B[w;\sigma,\delta],\qquad
+  A'=B'[w';\sigma',\delta'],\qquad
+  \deg w=\deg w'=2
+\]
+を次数付きOre拡大とする。
+ここで$\sigma,\sigma'$は次数付き自己同型、
+$\delta,\delta'$は次数2の対応する歪導分である。
+次数付き$\C$代数同型$F:A\to A'$は、
+次のデータと1対1に対応する：
+次数付き同型$\phi:B\to B'$、$\lambda\in\C^\times$、$u\in B'_2$であって
+\begin{align}
+  \phi\circ\sigma&=\sigma'\circ\phi,
+  \label{eq:ore-iso-sigma}\\
+  \phi\bigl(\delta(b)\bigr)
+    &=\lambda\delta'\bigl(\phi(b)\bigr)
+      +u\phi(b)-\sigma'\bigl(\phi(b)\bigr)u
+      \qquad(b\in B)
+  \label{eq:ore-iso-delta}
+\end{align}
+を満たすものである。
+この対応は
+\[
+  F|_B=\phi,\qquad F(w)=\lambda w'+u
+\]
+で与えられる。
+\end{proposition}
+
+\begin{proof}
+$A_1=B_1$、$A'_1=B'_1$なので、次数付き同型$F$は
+$\C\langle A_1\rangle=B$を$B'$へ写し、次数付き同型$\phi:B\to B'$を誘導する。
+$A_2=B_2\oplus\C w$、$A'_2=B'_2\oplus\C w'$であるから、
+ある一意な$\lambda\in\C^\times$と$u\in B'_2$により
+$F(w)=\lambda w'+u$と書ける。
+$wb=\sigma(b)w+\delta(b)$に$F$を施し、左$B'$自由基底の$w'$係数と定数項を比較すると
+\begin{align*}
+  (\lambda w'+u)\phi(b)
+   &=\lambda\sigma'\bigl(\phi(b)\bigr)w'
+     +\lambda\delta'\bigl(\phi(b)\bigr)+u\phi(b),\\
+  \phi\bigl(\sigma(b)\bigr)(\lambda w'+u)+\phi\bigl(\delta(b)\bigr)
+   &=\lambda\phi\bigl(\sigma(b)\bigr)w'
+     +\phi\bigl(\sigma(b)\bigr)u+\phi\bigl(\delta(b)\bigr)
+\end{align*}
+より\eqref{eq:ore-iso-sigma}と\eqref{eq:ore-iso-delta}を得る。
+
+逆にこれらの等式が成り立てば、$F|_B=\phi$、$F(w)=\lambda w'+u$は
+Ore関係式を保つので、次数付き準同型$F:A\to A'$を定める。
+その像は$B'$および$w'=\lambda^{-1}(F(w)-u)$を含むため、$F$は全射である。
+また、$b_m\ne0$である元$\sum_{i=0}^{m}b_iw^i$の像を
+左$B'$自由基底で展開したとき、$(w')^m$の係数は
+$\lambda^m\phi(b_m)\ne0$である。
+従って$F$は単射でもある。
+\end{proof}
+
+\eqref{eq:ore-iso-sigma}と\eqref{eq:ore-iso-delta}は$B_1$上で確認すれば十分である。
+前者の両辺は代数準同型であり、前者が成立すると、後者の両辺は
+$B$から$B'$への同じ$\phi\circ\sigma$および$\phi$に関する歪導分になるためである。
+具体的には、その差を$D$とすると
+$D(ab)=\phi(\sigma(a))D(b)+D(a)\phi(b)$であり、
+$D|_{B_1}=0$から積の長さに関する帰納法で$D=0$を得る。
+特に同じ$B$の上で変数を$\widetilde w=\lambda w+u$（$u\in B_2$）に取り替えると、
+$\sigma$は変わらず、歪導分は
+\[
+  \widetilde\delta(b)=\lambda\delta(b)+ub-\sigma(b)u
+  \qquad(b\in B)
+\]
+に変わる。

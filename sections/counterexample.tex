@@ -1,0 +1,55 @@
+\section{最小生成次数だけでは従わないこと}\label{sec:counterexample}
+
+\begin{proposition}\label{prop:counterexample}
+任意の \(n\ge1\) に対し、最小生成次数が \((1^n,2)\) である両側 noetherian
+AS-regular domain \(A_n\) で、\(k\langle(A_n)_1\rangle\) 上の次数 \(2\) の
+Ore 拡大ではないものが存在する。この例の大域次元は \(n+2\) である。
+\end{proposition}
+
+\begin{proof}
+可換多項式環
+\[
+R=k[x_1,\ldots,x_n,u],\qquad |x_i|=1,\quad |u|=3
+\]
+上の次数 \(2\) の derivation \(D\) を
+\[
+D(x_1)=u,\qquad D(x_i)=0\ (i\ge2),\qquad D(u)=0
+\]
+で定め、\(A_n=R[w;D]\)、\(|w|=2\) とする。
+従って
+\[
+wx_1-x_1w=u,\qquad wx_i=x_iw\ (i\ge2),\qquad wu=uw.
+\]
+Ore 拡大の自由加群表示により
+\[
+\{x_1^{a_1}\cdots x_n^{a_n}u^bw^c\mid a_i,b,c\ge0\}
+\]
+は \(k\)-基底をなす。\(u\) は regular central element であり、
+\[
+A_n/(u)\cong k[x_1,\ldots,x_n,w].
+\]
+右辺は大域次元 \(n+1\) の重み付き多項式環であるから、
+補題~\ref{lem:central-lift} を \(e=3\) で適用すると、
+\(A_n\) は両側 noetherian な大域次元 \(n+2\) の AS-regular 代数である。
+Domain 性は、Ore 変数 \(w\) に関する最高次係数の積が非零であることから従う。
+
+\(u=wx_1-x_1w\) なので \(u\) は最小生成元ではない。
+一方
+\[
+(A_n)_1=\bigoplus_i kx_i,\qquad
+(A_n)_2=k[x_1,\ldots,x_n]_2\oplus kw
+\]
+であるから、最小生成次数は正確に \((1^n,2)\) である。
+\[
+B_n:=k\langle(A_n)_1\rangle=k[x_1,\ldots,x_n],\qquad
+H_{A_n}(t)=\frac1{(1-t)^n(1-t^2)(1-t^3)}.
+\]
+もし \(A_n=B_n[v;\sigma,\delta]\)、\(|v|=2\) なら
+\(H_{A_n}=H_{B_n}/(1-t^2)\) となり、上式に反する。
+\end{proof}
+
+この例は、大域次元を指定しない場合の否定例である。
+\(\gldim A=n+1\) まで仮定した一般の \((1^n,2)\) 型については、
+\(\ASind A=n+2\) をさらに仮定すれば定理~\ref{thm:ore} が適用できる。
+最小生成次数と大域次元だけからその AS index を導く一般命題は、
+本稿の結果には含まれない。

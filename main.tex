@@ -1,0 +1,82 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage{fontspec}
+\IfFontExistsTF{HaranoAjiMincho-Regular}{%
+  \setmainfont{HaranoAjiMincho-Regular}[
+    BoldFont=HaranoAjiMincho-Bold,ItalicFont=HaranoAjiMincho-Regular,
+    BoldItalicFont=HaranoAjiMincho-Bold]
+  \setsansfont{HaranoAjiGothic-Medium}[
+    BoldFont=HaranoAjiGothic-Bold,ItalicFont=HaranoAjiGothic-Medium]
+}{%
+  \setmainfont{Noto Serif CJK JP}[
+    ItalicFont={Noto Serif CJK JP},BoldItalicFont={Noto Serif CJK JP Bold}]
+  \setsansfont{Noto Sans CJK JP}[ItalicFont={Noto Sans CJK JP}]
+}
+\setmonofont{Latin Modern Mono}
+\XeTeXlinebreaklocale "ja"
+\XeTeXlinebreakskip=0pt plus 1pt
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage[margin=25mm]{geometry}
+\usepackage{enumitem,array,booktabs}
+\usepackage[unicode,colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\usepackage{bookmark}
+\allowdisplaybreaks[2]
+\setlength{\emergencystretch}{2em}
+\numberwithin{equation}{section}
+\newtheorem{theorem}{定理}[section]
+\newtheorem{proposition}[theorem]{命題}
+\newtheorem{lemma}[theorem]{補題}
+\newtheorem{corollary}[theorem]{系}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{定義}
+\newtheorem{example}[theorem]{例}
+\newtheorem{remark}[theorem]{注意}
+\renewcommand{\proofname}{証明}
+\renewcommand{\contentsname}{目次}
+\renewcommand{\refname}{参考文献}
+\newcommand{\C}{\mathbb C}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\gldim}{gldim}
+\DeclareMathOperator{\GKdim}{GKdim}
+\DeclareMathOperator{\ASind}{ASindex}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\pd}{pd}
+\IfFileExists{build/build_info.tex}{\input{build/build_info.tex}}{%
+  \newcommand{\BuildTimestamp}{\texttt{python3 scripts/build.py} により生成}
+  \newcommand{\BuildFilename}{\texttt{python3 scripts/build.py} により生成}}
+\hypersetup{pdftitle={最小生成次数 (1,1,1,2) の AS-regular 代数と Ore 拡大}}
+\begin{document}
+\begin{titlepage}
+\centering
+\vspace*{30mm}
+{\LARGE 最小生成次数 \((1,1,1,2)\) の\\[3mm]
+AS-regular 代数と Ore 拡大\par}
+\vspace{10mm}
+{\large 中心拡大と重み \((1^n,2)\) への一般化\par}
+\vspace{20mm}
+\begin{minipage}{0.85\textwidth}
+連結次数付き両側 noetherian AS-regular 代数を扱う。
+4 次元で最小生成次数が \((1,1,1,2)\) の場合を、
+3 次元 quadratic AS-regular 代数上の次数 \(2\) の Ore 拡大として記述する。
+3 次元 \((1,1,2)\) 型の regular central extension を特徴付け、
+一般の \((1^n,2)\) 型については AS index の仮定の下で同じ構造定理を証明する。
+最小生成次数だけでは結論が成り立たない例も与える。
+\end{minipage}
+\vfill
+{\small 作成日時：\BuildTimestamp\par}
+\vspace{3mm}
+{\small PDF ファイル名：\texttt{\BuildFilename}\par}
+\vspace{8mm}
+{\small \url{https://github.com/uedakazushi/nc-p1112}\par}
+\end{titlepage}
+\tableofcontents
+\clearpage
+\input{sections/conventions.tex}
+\input{sections/general_ore.tex}
+\input{sections/low_dimensions.tex}
+\input{sections/central_extensions.tex}
+\input{sections/counterexample.tex}
+\input{bibliography.tex}
+\end{document}

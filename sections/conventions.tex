@@ -1,0 +1,58 @@
+\section{対象と結果の範囲}\label{sec:conventions}
+
+係数体を \(k=\C\) とする。代数は連結局所有限な
+\(\mathbb N\)-次数付き \(k\)-代数
+\(A=\bigoplus_{j\ge0}A_j\)、\(A_0=k\) とする。
+\(A_+=\bigoplus_{j>0}A_j\)、\(k=A/A_+\) と書き、
+shift は \(M(a)_j=M_{j+a}\) とする。
+\(H_M(t)=\sum_j(\dim_kM_j)t^j\) は、各次数有限次元で次数下有界な
+次数付きベクトル空間 \(M\) の Hilbert 級数である。
+
+AS-regular とは、大域次元 \(d\) と GK 次元が有限であり、
+左右の AS-Gorenstein 条件を満たすことをいう。
+右加群の規約では、その条件は
+\[
+\underline{\Ext}^{i}_A(k,A)\cong
+\begin{cases}k(\ell)&i=d,\\0&i\ne d\end{cases}
+\]
+である。\(\underline{\Ext}\) はすべての内部次数を含む次数付き Ext を表す。
+\(\ell=\ASind A\) を AS index と呼ぶ。
+本文の構造定理では、両側 noetherian 性を仮定する。
+
+\emph{最小生成次数が \((1^n,2)\)} とは、
+\(A_+/A_+^2\) が次数 \(1\) に \(n\) 次元、次数 \(2\) に \(1\) 次元を持ち、
+他の次数では零であることをいう。
+特に、次数 \(2\) の生成元は次数 \(1\) の元の積で消去できない。
+\[
+V=A_1,\qquad B=k\langle A_1\rangle\subseteq A
+\]
+と書く。\(B\) はこの定義から \(A\) に内在的に定まる。
+自由テンソル代数を \(T(V)=\bigoplus_{j\ge0}V^{\otimes_k j}\)、
+その次数 \(j\) の部分を \(T_j(V)=V^{\otimes_k j}\) と書く。
+
+次数 \(2\) の Ore 拡大の規約は
+\[
+A=B[w;\sigma,\delta],\qquad
+wb=\sigma(b)w+\delta(b),\qquad |w|=2,
+\]
+である。ここで \(\sigma\in\Aut_{\mathrm{gr}}B\)、
+\(\delta(B_j)\subseteq B_{j+2}\) であり、
+\[
+\delta(ab)=\sigma(a)\delta(b)+\delta(a)b.
+\]
+この拡大は左 \(B\)-加群として \(\bigoplus_{j\ge0}Bw^j\) であり、
+\(\sigma\) が可逆なので右 \(B\)-加群としても
+\(\bigoplus_{j\ge0}w^jB\) である。
+
+主結果である定理~\ref{thm:ore} は、
+\(\gldim A=n+1\)、\(\ASind A=n+2\) の下で、この Ore 表示と
+\(B\) の \(n\) 次元 quadratic Koszul AS-regular 性を与える。
+\(n=2,3\) では、必要な AS index を大域次元と最小生成次数から決定できる
+（第~\ref{sec:lowdim} 節）。従って、とくに 4 次元 \((1,1,1,2)\) 型は、
+3 次元 quadratic AS-regular 代数とその Ore データに帰着する。
+その記述の同型関係も明記する。
+
+一般の \(n\) について、最小生成次数と \(\gldim A=n+1\) のみから
+\(\ASind A=n+2\) を導く主張は、このノートでは証明しない。
+第~\ref{sec:counterexample} 節の反例は大域次元 \(n+2\) を持つため、
+大域次元 \(n+1\) に限定した主張への反例ではない。
