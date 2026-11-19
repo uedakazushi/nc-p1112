@@ -1,0 +1,57 @@
+\documentclass[a4paper,11pt]{ltjsarticle}
+\usepackage[haranoaji]{luatexja-preset}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage[margin=25mm]{geometry}
+\usepackage{enumitem,array,booktabs}
+\usepackage[unicode,colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\usepackage{bookmark}
+\allowdisplaybreaks[2]
+\setlength{\emergencystretch}{2em}
+\numberwithin{equation}{section}
+\newtheorem{theorem}{定理}[section]
+\newtheorem{proposition}[theorem]{命題}
+\newtheorem{lemma}[theorem]{補題}
+\newtheorem{corollary}[theorem]{系}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{定義}
+\newtheorem{example}[theorem]{例}
+\newtheorem{remark}[theorem]{注意}
+\renewcommand{\proofname}{証明}
+\renewcommand{\contentsname}{目次}
+\renewcommand{\refname}{参考文献}
+\newcommand{\C}{\mathbb C}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\gldim}{gldim}
+\DeclareMathOperator{\GKdim}{GKdim}
+\DeclareMathOperator{\ASind}{ASindex}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\pd}{pd}
+\hypersetup{pdftitle={最小生成次数 (1,1,1,2) の AS-regular 代数と Ore 拡大}}
+\begin{document}
+\begin{center}
+{\Large 最小生成次数 $(1^n,2)$ のAS-regular代数とOre拡大}\par
+\vspace{3mm}
+2026年11月20日 / 第2版
+\end{center}
+\begin{abstract}
+最小生成次数$(1^n,2)$、AS次元$n+1$、AS添字$n+2$の次数付きAS正則代数を
+次数2のOre拡大として記述する。低次元、中心拡大、反例を含む。
+一般の$\mathbb Z$-algebraへのindexed Ore拡張は未完成の研究課題として区別する。
+\end{abstract}
+\tableofcontents
+\clearpage
+\section{序論}
+主結果は定理~\ref{thm:ore}であり、証明には最小解消の二列構造と
+商$k[w]$上のTor有限性を用いる。$\mathbb Z$-algebra版では
+gradedへの下降とindexed Ore表示を区別する。
+\input{../sections/conventions.tex}
+\input{../sections/general_ore.tex}
+\input{../sections/low_dimensions.tex}
+\input{../sections/central_extensions.tex}
+\input{../sections/counterexample.tex}
+\input{sections/indexed_ore.tex}
+\input{../bibliography.tex}
+\end{document}

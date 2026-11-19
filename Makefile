@@ -1,9 +1,8 @@
-PYTHON ?= python3
-
-.PHONY: pdf check
-
+.PHONY: pdf check clean
 pdf:
-	$(PYTHON) scripts/build.py
-
+	latexmk
 check:
-	$(PYTHON) scripts/build.py --check
+	latexmk -v
+	lualatex --version
+clean:
+	latexmk -C

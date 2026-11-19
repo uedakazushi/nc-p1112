@@ -1,5 +1,7 @@
 # nc-p1112
 
+2026-11-20 / v2.0。最初に [研究方針](research/plan_ja.md) と [AGENTS.md](AGENTS.md) を参照する。
+
 最小生成次数が **(1,1,1,2)** の4次元 AS-regular 代数を、次数1の部分代数上の Ore 拡大として記述する研究ノートです。3次元 **(1,1,2)** 型の regular central extension と、一般の **(1^n,2)** 型への拡張を併せて扱います。
 
 係数体は複素数体です。構造定理では、連結局所有限な次数付き代数と両側 noetherian 性を仮定します。「最小生成次数」は `A_+ / A_+^2` の次数を指し、次数2の生成元が次数1の元の積で消去できる場合は含めません。
@@ -16,7 +18,7 @@
 
 ## ファイル
 
-- [main.tex](main.tex): 本文の入口、表紙、目次、共通設定。
+- [papers/nc-p1112.tex](papers/nc-p1112.tex): 本文の入口、表紙、目次、共通設定。
 - [sections/conventions.tex](sections/conventions.tex): 対象、次数・左右加群の規約、結果の範囲。
 - [sections/general_ore.tex](sections/general_ore.tex): 一般の n に対する構造定理と証明。
 - [sections/low_dimensions.tex](sections/low_dimensions.tex): 3次元・4次元の場合、逆構成、同型条件。
@@ -25,7 +27,7 @@
 - [bibliography.tex](bibliography.tex): 参考文献と使用箇所。
 - [scripts/build.py](scripts/build.py): 日付付き PDF の生成。
 
-## PDF の生成
+## 旧手順について
 
 Python 3.9 以降と、XeLaTeX・fontspec・AMS パッケージを含む TeX Live または MacTeX が必要です。日本語フォントには Harano Aji を優先し、見つからない場合は Noto Serif CJK JP / Noto Sans CJK JP を使用します。
 
@@ -53,3 +55,10 @@ PDF、フォント、TeX の中間ファイルは Git の管理対象に含め�
 - A. Chirvasitu, R. Kanda, S. P. Smith, *New Artin-Schelter regular and Calabi-Yau algebras via normal extensions*, [arXiv:1706.05754](https://arxiv.org/abs/1706.05754), Propositions 2.1, 2.3.
 - L.-Y. Liu, S.-Q. Wang, Q.-S. Wu, *Twisted Calabi-Yau property of Ore extensions*, [arXiv:1205.0893](https://arxiv.org/abs/1205.0893), Theorem 3.3.
 - D. Rogalski, J. J. Zhang, *Regular algebras of dimension 4 with 3 generators*, [arXiv:1101.1998](https://arxiv.org/abs/1101.1998), Section 2.
+
+
+## 現行の組版
+主原稿は [papers/nc-p1112.tex](papers/nc-p1112.tex)。LuaLaTeX・latexmk を用い、ルートで latexmk を実行する。PDFとSyncTeXは build/ に出力する。旧来の日時付きXeLaTeXビルドは現行手順ではない。
+
+## indexed Z-algebra への拡張
+[papers/sections/indexed_ore.tex](papers/sections/indexed_ore.tex)に正しいindexed Ore形式、二列解消とTorからの証明方針、残るギャップを記載する。無条件の一般定理としては未証明。詳しくは[研究ノート](research/notes_ja.md)。

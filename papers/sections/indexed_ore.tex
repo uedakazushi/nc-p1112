@@ -1,0 +1,66 @@
+% !TeX root = ../nc-p1112.tex
+\section{$\mathbb Z$-algebraへの拡張（研究中）}\label{sec:indexed}
+\subsection{結論の正しい形式}
+正連結・局所有限な$\mathbb Z$-algebra
+$\mathcal A=\bigoplus_{i\le j}\mathcal A_{ij}$を考える。
+各$i$で$V_i=\mathcal A_{i,i+1}$は$n$次元、
+$\mathcal A_{i,i+2}/V_iV_{i+1}$は一次元とし、その代表を
+$w_i\in\mathcal A_{i,i+2}$とする。$\mathcal B$を$V_i$の生成する部分
+$\mathbb Z$-algebraとする。自然なOre表示は
+\[
+ w_i b=\sigma_i(b)w_{j-2}+\delta_i(b),
+ \quad b\in\mathcal B_{i+2,j},\
+ \sigma_i(b)\in\mathcal B_{i,j-2},\
+ \delta_i(b)\in\mathcal B_{ij}
+\]
+という式と、$\sigma:\mathcal B(2)\simeq\mathcal B$の同型、
+およびPBW直和
+\[
+ \mathcal A_{ij}\cong
+ \bigoplus_{m\ge0}\mathcal B_{i,j-2m}
+ \bigl(w_{j-2m}w_{j-2m+2}\cdots w_{j-2}\bigr)
+\]
+を同時に要求する。$m=0$は空積とする。
+単一のgraded Ore代数の付随$\mathbb Z$-algebraであることは、
+別途1周期性を要求する、より強い主張である。
+
+\subsection{AS添字とTorに基づく候補}
+すべての単純加群が有限生成射影による有限最小解消を持ち、
+左右AS次元$n+1$・最高jump$n+2$であるとすると、
+各解消の第$p$項の行先は$i+p$と$i+p+1$に限られる。
+最小関係のjumpは2,3のみであり、
+\[
+ \mathcal Q:=\mathcal A/(V_i:i\in\mathbb Z)
+\]
+はjump2の自由道代数になる。
+$\operatorname{Tor}^{\mathcal A}_p(S_i,\mathcal Q)$が
+右$\mathcal Q$の自由直和因子を持たないことを強制できれば、
+テンソル後の非零ブロック$wM_{p,i}$は正方可逆となる見込みである。
+第2微分から
+\[
+ w_i v=\tau_i(v)w_{i+1}+\partial_i(v),\qquad
+ \tau_i:V_{i+2}\xrightarrow{\sim}V_i,\quad
+ \partial_i(v)\in T(V)_{i,i+3}
+\]
+を得て、第3微分の$d_2d_3=0$により$\tau$と$\partial$の
+純二次関係との両立を導くことが考えられる。
+この方法の添字・左右規約、PBWの単射性、
+基礎$\mathcal B$へのAS/Koszul降下の完全な検証は未完成である。
+\emph{本節は一般indexed構造定理を証明したとは主張しない。}
+
+\subsection{周期折畳の役割}
+$\mathcal A\simeq\mathcal A(L)$が与えられ、$L$頂点への
+折畳代数が左noetherianかつ有限大域次元を持てば、
+折畳した$\mathcal Q$は有限生成左加群なので
+$\operatorname{Tor}(S,\mathcal Q)$の有限支持を期待できる。
+AS添字$n+2$からこの周期・noetherian条件が自動かは要検証である。
+PBW成立時には各始点で
+$H_i^{\mathcal A}(t)=H_i^{\mathcal B}(t)/(1-t^2)$となるが、
+$H_i^{\mathcal B}(t)=(1-t)^{-n}$は別途示す必要がある。
+
+\subsection{隣接する研究との境界}
+\url{https://github.com/uedakazushi/nc-p1123}の主論文にある
+\texttt{genidx:lem:one-heavy-as}は、語長二次性と基礎AS性を
+仮定したindexed一重Ore補題である。
+一般の本課題では$\partial_i(v)$は語長3なので、
+その補題をそのまま適用することはできない。
