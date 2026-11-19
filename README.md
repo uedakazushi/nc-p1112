@@ -18,36 +18,17 @@
 
 ## ファイル
 
-- [papers/nc-p1112.tex](papers/nc-p1112.tex): 本文の入口、表紙、目次、共通設定。
+- [papers/nc-p1112.tex](papers/nc-p1112.tex): 本文のある主原稿と全節への参照。
 - [sections/conventions.tex](sections/conventions.tex): 対象、次数・左右加群の規約、結果の範囲。
 - [sections/general_ore.tex](sections/general_ore.tex): 一般の n に対する構造定理と証明。
 - [sections/low_dimensions.tex](sections/low_dimensions.tex): 3次元・4次元の場合、逆構成、同型条件。
 - [sections/central_extensions.tex](sections/central_extensions.tex): 中心拡大の特徴付けと具体的表示。
 - [sections/counterexample.tex](sections/counterexample.tex): 最小生成次数だけの場合の反例。
 - [bibliography.tex](bibliography.tex): 参考文献と使用箇所。
-- [scripts/build.py](scripts/build.py): 日付付き PDF の生成。
 
-## 旧手順について
+## 組版
 
-Python 3.9 以降と、XeLaTeX・fontspec・AMS パッケージを含む TeX Live または MacTeX が必要です。日本語フォントには Harano Aji を優先し、見つからない場合は Noto Serif CJK JP / Noto Sans CJK JP を使用します。
-
-```sh
-make check
-make pdf
-```
-
-`make` を使用しない場合は次のコマンドを使えます。
-
-```sh
-python3 scripts/build.py --check
-python3 scripts/build.py
-```
-
-PDF は `build/nc_p1112_YYYYMMDD_HHMMSS.pdf` に生成されます。表紙には実際の生成日時（JST、Asia/Tokyo）と PDF ファイル名を記載します。同じ秒に再生成した場合にも既存の PDF を上書きしません。相互参照を解決するために複数回コンパイルします。
-
-Cursor / VS Code で LaTeX Workshop を使う場合は、同梱の設定から Python のビルドスクリプトを呼び出せます。
-
-PDF、フォント、TeX の中間ファイルは Git の管理対象に含めません。
+LuaLaTeX（LuaTeX-ja を含む TeX Live / MacTeX）と latexmk を用います。ルートで `make pdf` または `latexmk` を実行すると、`build/nc-p1112.pdf` と SyncTeX が生成されます。VS Code / LaTeX Workshop からも同じ latexmk 設定を使用します。`make check` はコマンドの存在だけを検査します。
 
 ## 参考文献
 
@@ -56,9 +37,6 @@ PDF、フォント、TeX の中間ファイルは Git の管理対象に含め�
 - L.-Y. Liu, S.-Q. Wang, Q.-S. Wu, *Twisted Calabi-Yau property of Ore extensions*, [arXiv:1205.0893](https://arxiv.org/abs/1205.0893), Theorem 3.3.
 - D. Rogalski, J. J. Zhang, *Regular algebras of dimension 4 with 3 generators*, [arXiv:1101.1998](https://arxiv.org/abs/1101.1998), Section 2.
 
-
-## 現行の組版
-主原稿は [papers/nc-p1112.tex](papers/nc-p1112.tex)。LuaLaTeX・latexmk を用い、ルートで latexmk を実行する。PDFとSyncTeXは build/ に出力する。旧来の日時付きXeLaTeXビルドは現行手順ではない。
 
 ## indexed Z-algebra への拡張
 [papers/sections/indexed_ore.tex](papers/sections/indexed_ore.tex)に正しいindexed Ore形式、二列解消とTorからの証明方針、残るギャップを記載する。無条件の一般定理としては未証明。詳しくは[研究ノート](research/notes_ja.md)。
